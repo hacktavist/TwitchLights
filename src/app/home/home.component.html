@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="outer-div">
+  <h1>
+    Welcome to {{ title }}!
+</h1>
+
+
+
+<form>
+    <div class="inner-div">
+        <label class="label">Twitch Username</label><input class="textbox" type="text" [(ngModel)]="uname" [ngModelOptions]="{standalone: true}" autofocus>
+        <button class="submit" (click)="test(uname)">Is Stream Live?</button>
+         <h2>{{live}}</h2>
+
+
+    </div>
+</form>
+
+
+</div>
