@@ -28,6 +28,6 @@ body, input[type=text], button {
 }
 .inner-div
 {
-     display: inline-block;
+     display: inline-grid;
      padding: 50px;
 }

@@ -13,7 +13,10 @@ enableProdMode();
 
 export class HomeComponent {
   title = 'TwitchLights';
-  uname;
+  twitchUser;
+  x_aio_key;
+  adaUser;
+  feedKey;
   live = '';
   userID = '';
   today = new Date();
@@ -24,12 +27,12 @@ export class HomeComponent {
 
          adaData = [{"value": "", "created_at": this.jstoday}];
 
-         adaHeaders = new HttpHeaders().set('X-AIO-KEY', 'adafruit-io-KEY'); // need to move this to an environment variable in firebase
+         adaHeaders =  new HttpHeaders();
 
-         headers = new HttpHeaders().set('client-id', 'Twitch-App-Secret'); // need to move this to an environment variable in firebase
+         headers = new HttpHeaders().set('client-id', 'Twitch App Secret'); // need to move this to an environment variable in firebase
 
 
-         adafruitUrl = "https://io.adafruit.com/api/v2/hacktavist/feeds/live/data";
+         adafruitUrl = "https://io.adafruit.com/api/v2/";
 
          url = "https://api.twitch.tv/helix/users?login=";
 
@@ -41,8 +44,10 @@ export class HomeComponent {
 
 
 
-  test = function(user){
-
+  test = function(tUser, aUser, key, feed){
+      this.adaHeaders = this.adaHeaders.set('X-AIO-KEY', key); // need to move this to an environment variable in firebase
+      this.adafruitUrl = "https://io.adafruit.com/api/v2/";
+      this.adafruitUrl = this.adafruitUrl + aUser + "/feeds/" + feed + "/data";
       //
       // this.http.get(this.url, {headers:this.headers}).subscribe(data => {
       //
@@ -60,7 +65,7 @@ export class HomeComponent {
 
 
 
-      this.http.get(this.url + user, {headers:this.headers}).subscribe(data => {
+      this.http.get(this.url + tUser, {headers:this.headers}).subscribe(data => {
                         console.log(data.data);
           if(data.data[0] != null){
               this.userID = data.data[0].id;
@@ -92,6 +97,7 @@ export class HomeComponent {
       }
 
   });
+
 }
     getSubInfo = function(){
         this.http.get('http://localhost:3000/challenge/').subscribe(data => {
@@ -99,4 +105,4 @@ export class HomeComponent {
   console.log(this.jstoday);
         });
     }
-  }
+}

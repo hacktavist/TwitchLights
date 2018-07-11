@@ -8,12 +8,20 @@
 
 <form>
     <div class="inner-div">
-        <label class="label">Twitch Username</label><input class="textbox" type="text" [(ngModel)]="uname" [ngModelOptions]="{standalone: true}" autofocus>
-        <button class="submit" (click)="test(uname)">Is Stream Live?</button>
+        <label class="label">Twitch Username</label><input class="textbox" type="text" [(ngModel)]="twitchUser" [ngModelOptions]="{standalone: true}" autofocus>
+
+        <label class="label">Adafruit IO Username</label><input class="textbox" type="text" [(ngModel)]="adaUser" [ngModelOptions]="{standalone: true}">
+
+        <label class="label">Adafruit Feed</label><input class="textbox" type="text" [(ngModel)]="feedKey" [ngModelOptions]="{standalone: true}">
+
+        <label class="label">X-AIO-KEY</label><input class="textbox" type="password" [(ngModel)]="x_aio_key" [ngModelOptions]="{standalone: true}">
+
+
+        <button class="submit" (click)="test(twitchUser, adaUser, x_aio_key, feedKey)">Is Stream Live?</button>
          <h2>{{live}}</h2>
+     </div>
 
 
-    </div>
 </form>
 
 

@@ -1,10 +1,11 @@
 .label {
-    margin-right: 10px;
+    text-align: center;
+    margin-top: 10px;
 }
 .textbox {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 .submit {
-    margin-left: 10px;
+    margin: 40px;
 }
