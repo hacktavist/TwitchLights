@@ -11,11 +11,13 @@
         <label class="label">Twitch Username</label><input class="textbox" type="text" [(ngModel)]="twitchUser" [ngModelOptions]="{standalone: true}" autofocus>
 
         <label class="label">Adafruit IO Username</label><input class="textbox" type="text" [(ngModel)]="adaUser" [ngModelOptions]="{standalone: true}">
-
+    </div>
+    <div class="inner-div">
         <label class="label">Adafruit Feed</label><input class="textbox" type="text" [(ngModel)]="feedKey" [ngModelOptions]="{standalone: true}">
 
         <label class="label">X-AIO-KEY</label><input class="textbox" type="password" [(ngModel)]="x_aio_key" [ngModelOptions]="{standalone: true}">
-
+    </div>
+    <div>
 
         <button class="submit" (click)="test(twitchUser, adaUser, x_aio_key, feedKey)">Is Stream Live?</button>
          <h2>{{live}}</h2>

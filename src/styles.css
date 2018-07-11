@@ -29,5 +29,5 @@ body, input[type=text], button {
 .inner-div
 {
      display: inline-grid;
-     padding: 50px;
+     padding: 20px;
 }
