@@ -2,6 +2,7 @@ import { Component, enableProdMode } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 enableProdMode();
 
@@ -29,7 +30,7 @@ export class HomeComponent {
 
          adaHeaders =  new HttpHeaders();
 
-         headers = new HttpHeaders().set('client-id', 'Twitch App Secret'); // need to move this to an environment variable in firebase
+         headers = new HttpHeaders().set('client-id', environment.twitchApp.clientId); // need to move this to an environment variable in firebase
 
 
          adafruitUrl = "https://io.adafruit.com/api/v2/";

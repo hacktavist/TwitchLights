@@ -8,21 +8,53 @@
 
 <form>
     <div class="inner-div">
-        <label class="label">Twitch Username</label><input class="textbox" type="text" [(ngModel)]="twitchUser" [ngModelOptions]="{standalone: true}" autofocus>
+        <label class="label">Twitch Username</label><input class="textbox" type="text" required  [(ngModel)]="twitchUser" name="name" #name="ngModel" autofocus>
 
-        <label class="label">Adafruit IO Username</label><input class="textbox" type="text" [(ngModel)]="adaUser" [ngModelOptions]="{standalone: true}">
+        <label class="label">Adafruit IO Username</label><input class="textbox" type="text" required [(ngModel)]="adaUser" name="ada" #ada="ngModel">
     </div>
     <div class="inner-div">
-        <label class="label">Adafruit Feed</label><input class="textbox" type="text" [(ngModel)]="feedKey" [ngModelOptions]="{standalone: true}">
+        <label class="label">Adafruit Feed</label><input class="textbox" type="text" required [(ngModel)]="feedKey" name="feed" #feed="ngModel">
 
-        <label class="label">X-AIO-KEY</label><input class="textbox" type="password" [(ngModel)]="x_aio_key" [ngModelOptions]="{standalone: true}">
+        <label class="label">X-AIO-KEY</label><input class="textbox" type="password" required [(ngModel)]="x_aio_key" name="key" #key="ngModel">
     </div>
-    <div>
+    <div *ngIf="!name.invalid && !ada.invalid && !feed.invalid && !key.invalid">
 
-        <button class="submit" (click)="test(twitchUser, adaUser, x_aio_key, feedKey)">Is Stream Live?</button>
+        <button  class="submit" (click)="test(twitchUser, adaUser, x_aio_key, feedKey)">Is Stream Live?</button>
          <h2>{{live}}</h2>
      </div>
 
+     <div *ngIf="name.invalid && (name.dirty || name.touched)"
+         class="alert alert-danger">
+
+       <div *ngIf="name.errors.required">
+         Twitch Username is required.
+       </div>
+
+     </div>
+     <div *ngIf="ada.invalid && (ada.dirty || ada.touched)"
+         class="alert alert-danger">
+
+       <div *ngIf="ada.errors.required">
+         Adafruit IO Username is required.
+       </div>
+
+     </div>
+     <div *ngIf="feed.invalid && (feed.dirty || feed.touched)"
+         class="alert alert-danger">
+
+       <div *ngIf="feed.errors.required">
+         Adafruit Feed is required.
+       </div>
+
+     </div>
+     <div *ngIf="key.invalid && (key.dirty || key.touched)"
+         class="alert alert-danger">
+
+       <div *ngIf="key.errors.required">
+         Adafruit X-AIO-KEY is required.
+       </div>
+
+     </div>
 
 </form>
 
