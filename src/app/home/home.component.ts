@@ -30,7 +30,7 @@ export class HomeComponent {
 
          adaHeaders =  new HttpHeaders();
 
-         headers = new HttpHeaders().set('client-id', environment.twitchApp.clientId); // need to move this to an environment variable in firebase
+         headers = new HttpHeaders().set('client-id', environment.twitchApp.clientId);
 
 
          adafruitUrl = "https://io.adafruit.com/api/v2/";
@@ -46,7 +46,7 @@ export class HomeComponent {
 
 
   test = function(tUser, aUser, key, feed){
-      this.adaHeaders = this.adaHeaders.set('X-AIO-KEY', key); // need to move this to an environment variable in firebase
+      this.adaHeaders = this.adaHeaders.set('X-AIO-KEY', key); 
       this.adafruitUrl = "https://io.adafruit.com/api/v2/";
       this.adafruitUrl = this.adafruitUrl + aUser + "/feeds/" + feed + "/data";
       //
